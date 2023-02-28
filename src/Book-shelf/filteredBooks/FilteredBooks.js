@@ -1,13 +1,11 @@
 import classes from './FilteredBooks.module.css';
 import Book from '../Book/Book';
-import { useEffect, useState } from 'react';
-
 
 const FilteredBooks = (props) => {
 
     return (
         <div>
-        {!props.books && <p>No books avaiable</p>}
+        {props.books.length === 0 && <p>No books avaiable</p>}
         {props.books && 
         <div>
           <div className = {classes.bookshelf}>

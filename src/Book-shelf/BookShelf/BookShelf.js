@@ -2,9 +2,10 @@ import Book from '../Book/Book';
 import classes from './BookShelf.module.css';
 
 const BookShelf = (props) => {  
+  const bookList = [...props.books.currentlyReading, ...props.books.wantToRead, ...props.books.read];
     return(
       <div>
-        {props.books == false && <p>No books avaiable</p>}
+        {bookList.length === 0 && <p>No books avaiable</p>}
         {props.books && 
         <div>
           <div className = {classes.bookshelf}>

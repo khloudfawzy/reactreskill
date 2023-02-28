@@ -19,7 +19,7 @@ function App() {
       imgUrl: 'http://books.google.com/books/content?id=yDtCuFHXbAYC&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE72RRiTR6U5OUg3IY_LpHTL2NztVWAuZYNFE8dUuC0VlYabeyegLzpAnDPeWxE6RHi0C2ehrR9Gv20LH2dtjpbcUcs8YnH5VCCAH0Y2ICaKOTvrZTCObQbsfp4UbDqQyGISCZfGN&source=gbs_api',
     },
     {
-      title: 'the stranger',
+      title: 'The Stranger',
       author: 'Alber Camu',
       imgUrl: 'http://books.google.com/books/content?id=yDtCuFHXbAYC&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE72RRiTR6U5OUg3IY_LpHTL2NztVWAuZYNFE8dUuC0VlYabeyegLzpAnDPeWxE6RHi0C2ehrR9Gv20LH2dtjpbcUcs8YnH5VCCAH0Y2ICaKOTvrZTCObQbsfp4UbDqQyGISCZfGN&source=gbs_api',
     }
@@ -60,7 +60,7 @@ function App() {
   };
   const filterBookListHandler = (value) => {
     const books =  [...bookList.currentlyReading, ...bookList.wantToRead, ...bookList.read];
-    const filtered = value.length > 0 ? books.filter(book => book.title.includes(value)) : []
+    const filtered = value.length > 0 ? books.filter(book => book.title.toLocaleLowerCase().includes(value.toLocaleLowerCase())) : []
     setfilteredBookList(filtered);
   }
   
