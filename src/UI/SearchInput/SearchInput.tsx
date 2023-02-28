@@ -1,12 +1,12 @@
 import classes from './SearchInput.module.css';
 
 
-const SearchInput = (props) => {
+const SearchInput = (props: any) => {
     const onSearchForBook = () => {
         props.onClickSearch();
     };
 
-    const onFilterBooks = (event) => {
+    const onFilterBooks = (event: any) => {
         props.onFilter(event.target.value);
     };
 

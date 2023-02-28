@@ -58,9 +58,9 @@ function App() {
     setShowSearchpage(!showSearchPage);
     setfilteredBookList([])
   };
-  const filterBookListHandler = (value) => {
+  const filterBookListHandler = (value: string) => {
     const books =  [...bookList.currentlyReading, ...bookList.wantToRead, ...bookList.read];
-    const filtered = value.length > 0 ? books.filter(book => book.title.toLocaleLowerCase().includes(value.toLocaleLowerCase())) : []
+    const filtered: any = value.length > 0 ? books.filter(book => book.title.toLocaleLowerCase().includes(value.toLocaleLowerCase())) : []
     setfilteredBookList(filtered);
   }
   

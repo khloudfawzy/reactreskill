@@ -1,6 +1,6 @@
 import classes from './SearchButton.module.css';
 
-const Search = (props) => {
+const Search = (props: any) => {
     const onSearchForBook = () => {
         props.onClickSearch();
     }

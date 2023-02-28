@@ -1,7 +1,7 @@
 import classes from './Book.module.css';
 import ChangerButton from '../../UI/Button/ChangerButton';
 
-const Book = (props) => {
+const Book = (props: any) => {
     return(
         <div className = {classes['bookshelf-books']}>
             <ol className = {classes['books-grid']}>
