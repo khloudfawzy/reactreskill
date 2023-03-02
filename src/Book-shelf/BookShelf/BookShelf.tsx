@@ -1,23 +1,26 @@
-import { BookModel } from '../../models/Book.model';
 import Book from '../Book/Book';
 import classes from './BookShelf.module.css';
 
-const BookShelf = (props: any) => {  
-  const bookList = [...props.books.currentlyReading, ...props.books.wantToRead, ...props.books.read];
+const BookShelf = (props: any) => {
+  const currentlyReadingBooks = props.books.filter( (book: any) => book.shelf === 'currentlyReading');
+  const wantToReadBooks = props.books.filter( (book: any) => book.shelf === 'wantToRead');;
+  const readBooks = props.books.filter( (book: any) => book.shelf === 'read');
+
+
     return(
       <div>
-        {bookList.length === 0 && <p>No books avaiable</p>}
-        {props.books && 
+        {props.books.length === 0 && <p>No books avaiable</p>}
+        {props.books.length > 0 && 
         <div>
           <div className = {classes.bookshelf}>
             <h2 className = {classes['bookshelf-title']}>Currently Reading</h2>
             <div className = {classes.displayFlex}>
-              {props.books.currentlyReading.map((book: BookModel) => (
+              {currentlyReadingBooks.map((book: any) => (
                 <Book key = {book.title} bookInfo = {
                   {
                     title: book.title,
-                    author: book.author,
-                    imgUrl: book.imgUrl,
+                    authors: book.authors,
+                    imgUrl: book.imageLinks.thumbnail,
                   }
                 } />
               ))}
@@ -26,12 +29,12 @@ const BookShelf = (props: any) => {
           <div className = {classes.bookshelf}>
             <h2 className = {classes['bookshelf-title']}>Want to Read</h2>
             <div className = {classes.displayFlex}>
-            {props.books.wantToRead.map((book: BookModel) => (
+            {wantToReadBooks.map((book: any) => (
                 <Book key = {book.title} bookInfo = {
                   {
                     title: book.title,
-                    author: book.author,
-                    imgUrl: book.imgUrl,
+                    authors: book.authors,
+                    imgUrl: book.imageLinks.thumbnail,
                   }
                 } />
               ))}
@@ -41,12 +44,12 @@ const BookShelf = (props: any) => {
           <div className = {classes.bookshelf}>
             <h2 className = {classes['bookshelf-title']}>Read</h2>
             <div className = {classes.displayFlex}>
-            {props.books.read.map((book: BookModel) => (
+            {readBooks.map((book: any) => (
                 <Book key = {book.title} bookInfo = {
                   {
                     title: book.title,
-                    author: book.author,
-                    imgUrl: book.imgUrl,
+                    authors: book.authors,
+                    imgUrl: book.imageLinks.thumbnail,
                   }
                 } />
               ))}

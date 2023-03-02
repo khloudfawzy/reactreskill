@@ -20,7 +20,9 @@ const Book = (props: any) => {
                         <ChangerButton />
                     </div>
                     <div className = {classes['book-title']}>{props.bookInfo.title}</div>
-                    <div className = {classes['book-authors']}>{props.bookInfo.author}</div>
+                    {props.bookInfo.authors.map((author: any) => (
+                        <div key = {author} className = {classes['book-authors']}>{author}</div>
+                    ))}
                     </div>
                 </li>
             </ol>
