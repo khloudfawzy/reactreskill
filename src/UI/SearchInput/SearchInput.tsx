@@ -1,10 +1,8 @@
+import { Link } from 'react-router-dom';
 import classes from './SearchInput.module.css';
 
 
 const SearchInput = (props: any) => {
-    const onSearchForBook = () => {
-        props.onClickSearch();
-    };
 
     const onFilterBooks = (event: any) => {
         props.onFilter(event.target.value);
@@ -13,12 +11,11 @@ const SearchInput = (props: any) => {
     return(
         <div className = {classes['search-books']}>
             <div className = {classes['search-books-bar']}>
-                <button
-                    className = {classes['close-search']}
-                    onClick= {onSearchForBook}
-                >
+            <Link to = '/home'>
+                <button className = {classes['close-search']}>
                     Close
                 </button>
+            </Link>
                 <div className = {classes['search-books-input-wrapper']}>
                     <input
                     type="text"

@@ -1,10 +1,14 @@
-import classes from './FilteredBooks.module.css';
+import classes from '../BookShelf.module.css';
 import Book from '../Book/Book';
 
 const FilteredBooks = (props: any) => {
     return (
         <div>
-        {props.books.length === 0 && <p>No books avaiable</p>}
+        {
+          props.books.length === 0 && <div className = {classes['not-available']}>
+              <p>No books avaiable</p>
+            </div>
+        }
         {props.books && 
         <div>
           <div className = {classes.bookshelf}>

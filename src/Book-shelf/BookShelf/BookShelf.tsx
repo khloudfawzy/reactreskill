@@ -1,5 +1,5 @@
 import Book from '../Book/Book';
-import classes from './BookShelf.module.css';
+import classes from '../BookShelf.module.css';
 
 const BookShelf = (props: any) => {
   const currentlyReadingBooks = props.books.filter( (book: any) => book.shelf === 'currentlyReading');
@@ -9,12 +9,15 @@ const BookShelf = (props: any) => {
 
     return(
       <div>
-        {props.books.length === 0 && <p>No books avaiable</p>}
+        {props.books.length === 0 && <div className = {classes['not-available']}>
+          <p>No books avaiable</p>
+          </div>
+        }
         {props.books.length > 0 && 
         <div>
-          <div className = {classes.bookshelf}>
+          <div className = {classes['bookshelf']}>
             <h2 className = {classes['bookshelf-title']}>Currently Reading</h2>
-            <div className = {classes.displayFlex}>
+            <div className = {classes['displayFlex']}>
               {currentlyReadingBooks.map((book: any) => (
                 <Book key = {book.title} bookInfo = {
                   {
@@ -26,9 +29,9 @@ const BookShelf = (props: any) => {
               ))}
             </div>
           </div>
-          <div className = {classes.bookshelf}>
+          <div className = {classes['bookshelf']}>
             <h2 className = {classes['bookshelf-title']}>Want to Read</h2>
-            <div className = {classes.displayFlex}>
+            <div className = {classes['displayFlex']}>
             {wantToReadBooks.map((book: any) => (
                 <Book key = {book.title} bookInfo = {
                   {
@@ -41,9 +44,9 @@ const BookShelf = (props: any) => {
             </div>
           </div>
 
-          <div className = {classes.bookshelf}>
+          <div className = {classes['bookshelf']}>
             <h2 className = {classes['bookshelf-title']}>Read</h2>
-            <div className = {classes.displayFlex}>
+            <div className = {classes['displayFlex']}>
             {readBooks.map((book: any) => (
                 <Book key = {book.title} bookInfo = {
                   {

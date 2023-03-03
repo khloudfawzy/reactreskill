@@ -1,13 +1,10 @@
+import { Link } from 'react-router-dom';
 import classes from './SearchButton.module.css';
 
-const Search = (props: any) => {
-    const onSearchForBook = () => {
-        props.onClickSearch();
-    }
-
+const Search = () => {
     return(
         <div className = {classes['open-search']}>
-            <button onClick={onSearchForBook}>Add a book</button>
+            <Link to = '/search'><button>Add a book</button></Link>
         </div>
     )
 };
