@@ -1,6 +1,7 @@
 import Book from '../Book/Book';
 import classes from '../BookShelf.module.css';
 
+
 const BookShelf = (props: any) => {
   const currentlyReadingBooks = props.books.filter( (book: any) => book.shelf === 'currentlyReading');
   const wantToReadBooks = props.books.filter( (book: any) => book.shelf === 'wantToRead');;
