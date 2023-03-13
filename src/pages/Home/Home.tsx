@@ -1,20 +1,23 @@
 import { useEffect, useState } from 'react';
-import * as BookAPI from '../../BooksAPI';
 import Header from '../../UI/header/Header';
 import BookShelf from '../../Book-shelf/BookShelf/BookShelf';
 import SearchButton from '../../UI/searchButton/SearchButton';
 import LoadingSpinner from '../../UI/LoadingSpinner/LoadingSpinner';
+import { useAppSelector } from '../../store/bookSlice';
+import { useDispatch } from 'react-redux';
+import { Dispatcher } from '../../store/bookStore';
+import { getAllBooksApi } from '../../store/bookActions';
 
 const Home = () => {
     const [isLoading, toggleIsLoadding] = useState(false);
-    const [bookList, setBookList] = useState([]);
+    const allBooks: any = useAppSelector<any>((state) => state?.books?.books);
+    const dispatch = useDispatch<Dispatcher>();
+
     useEffect(()=>{
         toggleIsLoadding(true);
-        BookAPI.getAll().then( (books) => {
-          setBookList(books)
-          toggleIsLoadding(false);
-        })
-    },[]);
+        dispatch(getAllBooksApi())
+        toggleIsLoadding(false);
+    },[dispatch]);
 
     return(
         <div className='app'>
@@ -24,7 +27,7 @@ const Home = () => {
               </div> }
               {!isLoading && <div>
                 <Header />
-                <BookShelf books = {bookList}/>
+                <BookShelf books = {allBooks}/>
                 <SearchButton />
             </div>
             }

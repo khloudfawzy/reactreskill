@@ -10,9 +10,11 @@ const bookSlice = createSlice({
         searchResultBooks:[], 
     },
     reducers: {
+        getAllBooks(state, action) {
+            state.books = action.payload;
+        },
         updateBook(state, action) {
             state.books = action.payload;
-
         },
     }
 })

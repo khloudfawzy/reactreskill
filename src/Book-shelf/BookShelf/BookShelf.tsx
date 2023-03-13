@@ -6,7 +6,6 @@ const BookShelf = (props: any) => {
   const wantToReadBooks = props.books.filter( (book: any) => book.shelf === 'wantToRead');;
   const readBooks = props.books.filter( (book: any) => book.shelf === 'read');
 
-
     return(
       <div>
         {props.books.length === 0 && <div className = {classes['not-available']}>
@@ -19,7 +18,7 @@ const BookShelf = (props: any) => {
             <h2 className = {classes['bookshelf-title']}>Currently Reading</h2>
             <div className = {classes['displayFlex']}>
               {currentlyReadingBooks.map((book: any) => (
-                <Book key = {book.title} bookList = {props.books} bookInfo = {
+                <Book key = {book.title} bookInfo = {
                   {
                     id : book.id,
                     title: book.title,
@@ -37,9 +36,11 @@ const BookShelf = (props: any) => {
             {wantToReadBooks.map((book: any) => (
                 <Book key = {book.title} bookInfo = {
                   {
+                    id : book.id,
                     title: book.title,
                     authors: book.authors,
                     imgUrl: book.imageLinks.thumbnail,
+                    shelf: book.shelf,
                   }
                 } />
               ))}
@@ -52,9 +53,11 @@ const BookShelf = (props: any) => {
             {readBooks.map((book: any) => (
                 <Book key = {book.title} bookInfo = {
                   {
+                    id : book.id,
                     title: book.title,
                     authors: book.authors,
                     imgUrl: book.imageLinks.thumbnail,
+                    shelf: book.shelf,
                   }
                 } />
               ))}

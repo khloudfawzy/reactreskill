@@ -16,9 +16,11 @@ const FilteredBooks = (props: any) => {
               {props.books.map((book: any) => (
                 <Book key = {book.title} bookInfo = {
                   {
+                    id : book.id,
                     title: book.title,
                     authors: book.authors,
                     imgUrl: book.imageLinks.thumbnail,
+                    shelf: book.shelf,
                   }
                 } />
               ))}

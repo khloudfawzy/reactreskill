@@ -1,11 +1,18 @@
 import * as BookAPI from '../BooksAPI';
 import { Dispatch } from "redux";
-import { bookAction } from './bookSlice'
+import { bookAction } from './bookSlice';
 
-export const updateBook = (book : any , shelf : string, allBooks: any) => (dispatch : Dispatch ) => {
+export const getAllBooksApi = () => (dispatch: Dispatch) => {
+    BookAPI.getAll().then(books =>{
+      dispatch(bookAction.getAllBooks(books));
+    }
+    );
+  };
+
+export const updateBook = (book : any , shelf : string, bookList: any) => (dispatch : Dispatch ) => {
     BookAPI.update(book, shelf).then(() =>{
     let newBooks = [];
-    newBooks = allBooks.map((item: any) => {
+    newBooks = bookList.map((item: any) => {
         if (item.id === book.id ) {
           return {...item, shelf: shelf as string};
         }
