@@ -10,7 +10,7 @@ const BookShelf = (props: any) => {
     return(
       <div>
         {props.books.length === 0 && <div className = {classes['not-available']}>
-          <p>No books avaiable</p>
+          <p>No books available</p>
           </div>
         }
         {props.books.length > 0 && 
@@ -19,11 +19,13 @@ const BookShelf = (props: any) => {
             <h2 className = {classes['bookshelf-title']}>Currently Reading</h2>
             <div className = {classes['displayFlex']}>
               {currentlyReadingBooks.map((book: any) => (
-                <Book key = {book.title} bookInfo = {
+                <Book key = {book.title} bookList = {props.books} bookInfo = {
                   {
+                    id : book.id,
                     title: book.title,
                     authors: book.authors,
                     imgUrl: book.imageLinks.thumbnail,
+                    shelf: book.shelf,
                   }
                 } />
               ))}

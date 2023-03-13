@@ -6,7 +6,7 @@ const FilteredBooks = (props: any) => {
         <div>
         {
           props.books.length === 0 && <div className = {classes['not-available']}>
-              <p>No books avaiable</p>
+              <p>No books available</p>
             </div>
         }
         {props.books && 

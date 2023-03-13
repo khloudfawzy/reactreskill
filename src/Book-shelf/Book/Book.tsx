@@ -17,7 +17,7 @@ const Book = (props: any) => {
                             `url(${props.bookInfo.imgUrl})`,
                         }}
                         ></div>
-                        <ChangerButton />
+                        <ChangerButton book = {props.bookInfo}/>
                     </div>
                     <div className = {classes['book-title']}>{props.bookInfo.title}</div>
                     {props.bookInfo.authors.map((author: any) => (
