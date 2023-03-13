@@ -22,3 +22,12 @@ export const updateBook = (book : any , shelf : string, bookList: any) => (dispa
   }
   );
 };
+
+export const searchBooks = (query: string) => (dispatch: Dispatch) => {
+  BookAPI.search(query,20).then(books => {
+    if (!Array.isArray(books)) {
+      books = [];
+    }
+    dispatch(bookAction.searchBooks(books));
+  });
+};

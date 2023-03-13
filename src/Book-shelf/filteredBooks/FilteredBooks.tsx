@@ -14,11 +14,11 @@ const FilteredBooks = (props: any) => {
           <div className = {classes.bookshelf}>
             <div className = {classes.displayFlex}>
               {props.books.map((book: any) => (
-                <Book key = {book.title} bookInfo = {
+                <Book key = {book.id} bookInfo = {
                   {
                     id : book.id,
                     title: book.title,
-                    authors: book.authors,
+                    publisher: book.publisher,
                     imgUrl: book.imageLinks.thumbnail,
                     shelf: book.shelf,
                   }

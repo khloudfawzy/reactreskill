@@ -20,7 +20,7 @@ const Book = (props: any) => {
                         <ChangerButton book = {props.bookInfo}/>
                     </div>
                     <div className = {classes['book-title']}>{props.bookInfo.title}</div>
-                    {props.bookInfo.authors.map((author: any) => (
+                    {props.bookInfo.authors && props.bookInfo.authors.map((author: any) => (
                         <div key = {author} className = {classes['book-authors']}>{author}</div>
                     ))}
                     </div>
